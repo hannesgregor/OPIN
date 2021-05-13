@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import {
   START_LOADING,
   STORE_RESTAURANTS,

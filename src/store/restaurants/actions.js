@@ -14,11 +14,11 @@ export const loadRestaurants = () => (dispatch, getState, api) => {
     });
 };
 
-const startLoading = () => ({ type: START_LOADING });
+const startLoading = () => ({type: START_LOADING});
 
 const storeRestaurants = records => ({
   type: STORE_RESTAURANTS,
   records,
 });
 
-const recordLoadingError = () => ({ type: RECORD_LOADING_ERROR });
+const recordLoadingError = () => ({type: RECORD_LOADING_ERROR});

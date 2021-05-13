@@ -1,14 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import restaurantsReducer from '../restaurants/reducers';
-import { loadRestaurants } from '../restaurants/actions';
+import {loadRestaurants} from '../restaurants/actions';
 
 describe('restaurants', () => {
   describe('loadRestaurants action', () => {
     describe('when loading succeeds', () => {
       const records = [
-        { id: 1, name: 'Sushi Place' },
-        { id: 2, name: 'Pizza Place' },
+        {id: 1, name: 'Sushi Place'},
+        {id: 2, name: 'Pizza Place'},
       ];
 
       let store;
@@ -32,7 +32,6 @@ describe('restaurants', () => {
       });
 
       it('stores the restaurants', () => {
-
         expect(store.getState().records).toEqual(records);
       });
 
@@ -70,12 +69,9 @@ describe('restaurants', () => {
     });
 
     describe('when loading fails', () => {
-      beforeEach(() => {
-        renderWithProps({ loadError: true });
-      });
-
+      beforeEach(() => {});
       it('displays the error message', () => {
-        const { queryByText } = context;
+        const {queryByText} = context;
         expect(queryByText('Restaurants could not be loaded.')).not.toBeNull();
       });
     });
@@ -85,10 +81,10 @@ describe('restaurants', () => {
 
       beforeEach(() => {
         const api = {
-          loadRestaurants: () => new Promise(() => { }),
+          loadRestaurants: () => new Promise(() => {}),
         };
 
-        const initialState = { loadError: true };
+        const initialState = {loadError: true};
 
         store = createStore(
           restaurantsReducer,
@@ -106,7 +102,6 @@ describe('restaurants', () => {
         expect(store.getState().loadError).toEqual(false);
       });
     });
-
   });
 
   describe('initially', () => {
